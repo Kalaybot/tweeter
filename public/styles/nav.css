@@ -4,11 +4,12 @@ nav {
   color: #FFFFFF;
   height: 120px;
   width: 100%;
-  font-family: 'Source Sans 3', sans-serif;
   display: flex;
   justify-content: space-between; /* Space out the logo and tweet section */
   align-items: center; /* Vertically center content in the nav */
   padding: 0 1.5em; /* Horizontal padding for nav content */
+  top: 0; /* Ensures the nav bar stays at the top */
+  position: fixed; /* Fixes the nav bar to the top of the viewport */
 }
 
 /* Style for the tweeter logo */
@@ -17,7 +18,6 @@ nav span {
   color: #FFFFFF;
   font-size: 32px;
   font-weight: 600;
-  margin-top: 60px;
 }
 
 /* Style for the tweet section */
@@ -26,7 +26,6 @@ nav span {
   flex-direction: column; /* Stack text and icon vertically */
   align-items: flex-end; /* Align the section to the right */
   color: #FFFFFF; /* Text color */
-  margin-top: 60px;
 }
 
 /* Style for the text */

@@ -16,11 +16,12 @@ html {
 
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #006969;
   font-size: 24px;
-
-  /* Font style to Source Sans 3 */
   font-family: 'Source Sans 3', sans-serif;
+  padding-top: 120px;
+  background-image: url("https://www.transparenttextures.com/patterns/black-linen-2.png"); /* Set the background image */
+  background-repeat: repeat; /* Ensure the background image repeats if it's smaller than the viewport */
 }
 
 /*

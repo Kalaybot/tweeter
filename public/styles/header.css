@@ -1,0 +1,15 @@
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4b032;
+}
+
+.name {
+  font-family: 'Source Sans 3', sans-serif; /* Apply desired font */
+  font-size: 20px; /* Adjust font size as necessary */
+  font-weight: 100;
+  color: #FFFFFF;
+}
