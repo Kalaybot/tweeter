@@ -24,23 +24,21 @@
 }
 
 /* Textarea styling */
-#tweet-text {
+.text-area {
   width: 100%;
   border: none;
   border-bottom: 2px solid black; /* Bottom border */
   background-color: transparent;
   font-family: 'Source Sans 3', sans-serif;
   font-size: 16px;
+  font-weight: bold;
   outline: none;
   resize: none;
   margin-bottom: 15px;
+  padding: 10px;
 }
 
-#tweet-text:focus {
-  border-bottom: 2px solid #006969; /* Highlighted border on focus */
-}
-
-form footer {
+form > footer {
   display: flex; /* Enable flexbox layout */
   justify-content: space-between; /* Space out the button and counter */
   align-items: center; /* Vertically center them */
@@ -48,7 +46,7 @@ form footer {
 }
 
 /* Button styling */
-.new-tweet button {
+.submit {
   background-color: #4056a1; /* Blue color */
   color: #fff;
   font-family: 'Bungee', sans-serif;

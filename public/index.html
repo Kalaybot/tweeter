@@ -30,8 +30,12 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <!-- Character Counter JS -->
+    <script src="/scripts/composer-char-counter.js"></script>
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
   </head>
 
   <body>
@@ -63,9 +67,9 @@
         <h2>Compose Tweet</h2>
         <form action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <footer class="form-footer">
-            <button type="submit">Tweet</button>
+          <textarea  class="text-area" name="text" id="tweet-text"></textarea>
+          <footer>
+            <button class="submit" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </footer>
         </form>
