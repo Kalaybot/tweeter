@@ -27,10 +27,7 @@ body {
  */
 
 .container {
-  width: 140;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1.5em;
-  background-color: #f4f1ec;
+  width: 90%;
+  margin: 0 auto;
+  background-color: inherit;
 }

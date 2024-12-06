@@ -35,3 +35,14 @@ app.use("/tweets", tweetsRoutes);
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
+
+app.post("/tweets", (req, res) => {
+  const tweetContent = req.body.text;
+  if (tweetContent && tweetContent.length <= 140) {
+    console.log(`New Tweet: ${tweetContent}`);
+    // Save tweet to database or perform other actions
+    res.status(201).send("Tweet received!");
+  } else {
+    res.status(400).send("Tweet content is invalid.");
+  }
+});

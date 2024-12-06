@@ -1,0 +1,70 @@
+
+/* Styling the new-tweet section */
+.new-tweet {
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Header styling */
+.new-tweet h2 {
+  text-align: center;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 15px;
+}
+
+/* Label styling */
+.new-tweet label {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: black;
+}
+
+/* Textarea styling */
+#tweet-text {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid black; /* Bottom border */
+  background-color: transparent;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 16px;
+  outline: none;
+  resize: none;
+  margin-bottom: 15px;
+}
+
+#tweet-text:focus {
+  border-bottom: 2px solid #006969; /* Highlighted border on focus */
+}
+
+form footer {
+  display: flex; /* Enable flexbox layout */
+  justify-content: space-between; /* Space out the button and counter */
+  align-items: center; /* Vertically center them */
+  margin-top: 10px; /* Add spacing above the footer if needed */
+}
+
+/* Button styling */
+.new-tweet button {
+  background-color: #4056a1; /* Blue color */
+  color: #fff;
+  font-family: 'Bungee', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.counter {
+  display: inline-block; /* Keep the counter inline */
+  font-family: 'Bungee', sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+
