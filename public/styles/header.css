@@ -1,4 +1,4 @@
-header {
+.user-avatar {
   width: 100%;
   height: 400px;
   display: flex;
@@ -10,7 +10,7 @@ header {
   background-repeat: repeat; /* Ensure the background image repeats if it's smaller than the viewport */
 }
 
-.name {
+.my-name {
   font-family: 'Source Sans 3', sans-serif; /* Apply desired font */
   font-size: 20px; /* Adjust font size as necessary */
   font-weight: 100;

@@ -1,6 +1,6 @@
 $(document).ready(function() {
   // Event listener for input event on textarea
-  $('.text-area').on('input', function() {
+  $('.text-area').on('keyup', function() {
     // Get the length of the text inside the textarea
     var textLength = $(this).val().length;
     
@@ -13,11 +13,11 @@ $(document).ready(function() {
     // Update the .counter element with the remaining characters
     counter.text(remainingChars);
     
-    // Optional: Change the counter color if the limit is exceeded
-    if (remainingChars < 0) {
-      counter.css('color', 'red');
+   // If remaining characters are less than 0, add 'counter-red' class
+   if (remainingChars < 0) {
+      counter.addClass('counter-red'); // Adds red color to counter
     } else {
-      counter.css('color', 'black');
+      counter.removeClass('counter-red'); // Removes red color when back under limit
     }
   });
 });
