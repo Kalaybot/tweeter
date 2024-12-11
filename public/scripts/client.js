@@ -30,20 +30,10 @@ const data = [
   }
 ];
 
-// Function to render an array of tweets
-const renderTweets = function(tweets) {
-  // Empty the container before adding new tweets
-  $('#tweets-container').empty();
-
-  // Loops through the tweets
-  for (const tweet of tweets) {
-    // Calls createTweetElement for each tweet
-    const $tweet = createTweetElement(tweet);
-
-    // Appends the tweet to the tweets container
-    $('#tweets-container').prepend($tweet);
-  }
-};
+// Timestamp for tweets
+function timeSince(timestamp) {
+  return timeago.format(new Date(timestamp)); //Using timeago library to format the timestamp
+}
 
 const createTweetElement = (tweet) => {
   const $tweet = $(`
@@ -59,7 +49,7 @@ const createTweetElement = (tweet) => {
         <p class="tweet-text">${tweet.content.text}</p>
       </section>
       <footer class="tweet-footer">
-        <time class="timestamp">${timeSince(tweet.created_at)} ago</time>
+        <time class="timestamp">${timeSince(tweet.created_at)}</time>
         <span class="interactive-icons">
           <i class="fas fa-flag"></i>
           <i class="fas fa-retweet"></i>
@@ -71,35 +61,46 @@ const createTweetElement = (tweet) => {
   return $tweet;
 };
 
-// Helper function to calculate time since the tweet was created
-function timeSince(timestamp) {
-  const seconds = Math.floor((Date.now() - timestamp) / 1000);
-  const intervals = [
-    { label: "year", seconds: 31536000 },
-    { label: "month", seconds: 2592000 },
-    { label: "day", seconds: 86400 },
-    { label: "hour", seconds: 3600 },
-    { label: "minute", seconds: 60 },
-  ];
+// Function to render an array of tweets
+const renderTweets = function(tweets) {
+  // Empty the container before adding new tweets
+  $('#tweets-container').empty();
 
-  for (const interval of intervals) {
-    const count = Math.floor(seconds / interval.seconds);
-    if (count >= 1) {
-      return `${count} ${interval.label}${count > 1 ? "s" : ""}`;
-    }
+  // Loops through the tweets
+  for (const tweet of tweets) {
+    // Calls createTweetElement for each tweet
+    const $tweet = createTweetElement(tweet);
+
+    // Appends the tweet to the tweets container
+    $('#tweets-container').prepend($tweet);
   }
-  return `${seconds} second${seconds !== 1 ? "s" : ""}`;
-}
+};
 
-// Test / driver code
+// Load tweets from the server
 $(document).ready(function() {
-  renderTweets(data);
+  const loadTweets = function() {
+    $.ajax({
+      url: '/tweets', // Endpoint to get tweets
+      method: 'GET', // GET method to fecth data
+      success: function(tweets) {
+        console.log("Tweets loaded successfully:", tweets); // Logs loaded tweets
+        renderTweets(tweets); // Call renderTweets to display the tweets
+      },
+      error: function(error) {
+        console.error("Error loading tweets:", error); // Handles error
+      }
+    });
+  };
+  loadTweets(); // Load tweets when page is ready
 });
 
+// Handles form submission
 $('form').on('submit', function(event) {
   event.preventDefault(); // Prevents form submission
 
   const formData = $(this).serialize(); // Standardized form data (key=value&key2=value2)
+
+  console.log("Data being sent to the server:", formData); // Log the data to console
 
   $.ajax({
     url: '/tweets', // API documentation (server endpoint)
@@ -107,9 +108,8 @@ $('form').on('submit', function(event) {
     data: formData, // Standardized form data
     success: function(response) {
       console.log("Tweet submitted successfully:", response);
-      // Prepend new tweets in the container
-      const newTweet = createTweetElement(response); // Create the new tweet DOM element
-      $('#tweets-container').prepend(newTweet); // Add the new tweet to the DOM
+      
+      loadTweets(); // Display newly added tweets
     },
     error: function(error) {
       console.error("Error submitting tweet:", error); // Error handling
