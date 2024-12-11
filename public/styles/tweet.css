@@ -4,6 +4,10 @@
   margin-bottom: 15px;
 }
 
+.tweet:hover {
+  box-shadow: 8px 8px 0px 0px rgba(197, 203, 227, 1);
+}
+
 .user-header {
   font-size: 20px;
   display: flex;
@@ -31,6 +35,10 @@
   color: #4056a1;
   margin: 5px;
   cursor: pointer;
+}
+
+.interactive-icons i:hover{
+  color: #d79922;
 }
 
 .timestamp {
