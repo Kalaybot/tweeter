@@ -41,7 +41,7 @@ const renderTweets = function(tweets) {
     const $tweet = createTweetElement(tweet);
 
     // Appends the tweet to the tweets container
-    $('#tweets-container').append($tweet);
+    $('#tweets-container').prepend($tweet);
   }
 };
 
@@ -94,4 +94,25 @@ function timeSince(timestamp) {
 // Test / driver code
 $(document).ready(function() {
   renderTweets(data);
+});
+
+$('form').on('submit', function(event) {
+  event.preventDefault(); // Prevents form submission
+
+  const formData = $(this).serialize(); // Standardized form data (key=value&key2=value2)
+
+  $.ajax({
+    url: '/tweets', // API documentation (server endpoint)
+    method: 'POST', // HTTP method
+    data: formData, // Standardized form data
+    success: function(response) {
+      console.log("Tweet submitted successfully:", response);
+      // Prepend new tweets in the container
+      const newTweet = createTweetElement(response); // Create the new tweet DOM element
+      $('#tweets-container').prepend(newTweet); // Add the new tweet to the DOM
+    },
+    error: function(error) {
+      console.error("Error submitting tweet:", error); // Error handling
+    }
+  });
 });

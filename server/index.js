@@ -38,11 +38,23 @@ app.listen(PORT, () => {
 
 app.post("/tweets", (req, res) => {
   const tweetContent = req.body.text;
+  
   if (tweetContent && tweetContent.length <= 140) {
     console.log(`New Tweet: ${tweetContent}`);
-    // Save tweet to database or perform other actions
-    res.status(201).send("Tweet received!");
+    // Simulate saving the tweet or sending a response
+    res.status(201).send({
+      user: {
+        name: "New User", // Replace with the actual user
+        avatars: "https://i.imgur.com/73hZDYK.png", // Replace with the actual avatar URL
+        handle: "@NewUser"
+      },
+      content: {
+        text: tweetContent
+      },
+      created_at: Date.now()
+    });
   } else {
     res.status(400).send("Tweet content is invalid.");
   }
 });
+
