@@ -76,43 +76,58 @@ const renderTweets = function(tweets) {
   }
 };
 
-// Load tweets from the server
-$(document).ready(function() {
-  const loadTweets = function() {
-    $.ajax({
-      url: '/tweets', // Endpoint to get tweets
-      method: 'GET', // GET method to fecth data
-      success: function(tweets) {
-        console.log("Tweets loaded successfully:", tweets); // Logs loaded tweets
-        renderTweets(tweets); // Call renderTweets to display the tweets
-      },
-      error: function(error) {
-        console.error("Error loading tweets:", error); // Handles error
-      }
-    });
-  };
-  loadTweets(); // Load tweets when page is ready
-});
-
-// Handles form submission
-$('form').on('submit', function(event) {
-  event.preventDefault(); // Prevents form submission
-
-  const formData = $(this).serialize(); // Standardized form data (key=value&key2=value2)
-
-  console.log("Data being sent to the server:", formData); // Log the data to console
-
+// Load tweets from server
+const loadTweets = function() {
   $.ajax({
-    url: '/tweets', // API documentation (server endpoint)
-    method: 'POST', // HTTP method
-    data: formData, // Standardized form data
-    success: function(response) {
-      console.log("Tweet submitted successfully:", response);
-      
-      loadTweets(); // Display newly added tweets
+    url: '/tweets', // Endpoint to get tweets
+    method: 'GET', // GET method to fecth data
+    success: function(tweets) {
+      console.log("Tweets loaded successfully:", tweets); // Logs loaded tweets
+      renderTweets(tweets); // Call renderTweets to display the tweets
     },
     error: function(error) {
-      console.error("Error submitting tweet:", error); // Error handling
+      console.error("Error loading tweets:", error); // Handles error
     }
   });
+};
+
+$(document).ready(function() {
+  loadTweets(); // Load tweets when page is ready
+
+    // Handles form submission
+  $('form').on('submit', function(event) {
+    event.preventDefault(); // Prevents form submission
+
+    const tweetText = $('#tweet-text').val().trim(); // Trim textarea from any whitespaces
+
+    if (!tweetText) {
+      alert("Error: Your tweet cannot be empty!"); // Validation and display error message
+      return; 
+    }
+
+    if (tweetText.length > 140) {
+      alert("Error: Your tweet exceeds the maximum character limit of 140!"); // Error message for more than 140 characters
+      return; 
+    }
+
+    const formData = $(this).serialize(); // Standardized form data (key=value&key2=value2)
+
+    console.log("Data being sent to the server:", formData); // Log the data to console
+
+    $.ajax({
+      url: '/tweets', // API documentation (server endpoint)
+      method: 'POST', // HTTP method
+      data: formData, // Standardized form data
+      success: function(response) {
+        console.log("Tweet submitted successfully:", response);
+        
+        loadTweets(); // Display newly added tweets
+      },
+      error: function(error) {
+        console.error("Error submitting tweet:", error); // Error handling
+      }
+    });
+  });
 });
+
+
