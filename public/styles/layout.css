@@ -31,3 +31,26 @@ body {
   margin: 0 auto;
   background-color: inherit;
 }
+
+/* Tablet (min-width: 768px) and Desktop (min-width: 1024px) */
+@media only screen and (min-width: 768px) {
+  /* Align avatar and compose tweet side by side */
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Space between avatar and tweet compose */
+    align-items: flex-start; /* Align the items at the start of the row */
+  }
+
+  .user-avatar {
+    width: 30%; /* Avatar takes up 30% of the container */
+    flex-direction: column;
+    align-items: flex-start; /* Align avatar to the left */
+  }
+
+  .new-tweet {
+    width: 65%; /* Tweet compose takes up 65% of the container */
+    margin-top: 0; /* Remove margin to align it better */
+    flex-direction: column; /* Keep the tweet form vertically aligned */
+  }
+}

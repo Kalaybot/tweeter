@@ -114,6 +114,7 @@ $(document).ready(function() {
     if (!tweetText) {
       $("#validation-message")
       .text("Error: Your tweet cannot be empty!") // Error message using .text
+      .hide()
       .slideDown();
     return;
     }
@@ -122,6 +123,7 @@ $(document).ready(function() {
       // Display error for exceeding character limit
       $("#validation-message")
         .text("Too long, your tweet exceeds 140 characters.")
+        .hide()
         .slideDown();
       return; // Stop execution if there's an error
     }
