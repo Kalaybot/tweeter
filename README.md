@@ -27,4 +27,4 @@ This project uses the following dependencies:
 
 ## Final product/Screenshot
 
-![Screenshot of Final Project](images/TweeterPage.png)
+![Screenshot of Final Project](public/images/TweeterPage.png)
