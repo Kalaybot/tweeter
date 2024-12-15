@@ -35,7 +35,16 @@ function timeSince(timestamp) {
   return timeago.format(new Date(timestamp)); //Using timeago library to format the timestamp
 }
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = (tweet) => {
+
+  const safeHTML = `<p class="tweet-text">${escape(tweet.content.text)}</p>`;
+
   const $tweet = $(`
     <article class="tweet">
       <header class="user-header">
@@ -46,7 +55,7 @@ const createTweetElement = (tweet) => {
         <h3 class="username">${tweet.user.handle}</h3>
       </header>
       <section class="tweet-content">
-        <p class="tweet-text">${tweet.content.text}</p>
+      ${safeHTML}
       </section>
       <footer class="tweet-footer">
         <time class="timestamp">${timeSince(tweet.created_at)}</time>
@@ -98,16 +107,23 @@ $(document).ready(function() {
   $('form').on('submit', function(event) {
     event.preventDefault(); // Prevents form submission
 
-    const tweetText = $('#tweet-text').val().trim(); // Trim textarea from any whitespaces
+    let tweetText = $('#tweet-text').val().trim(); // Trim textarea from any whitespaces
+
+    $("#validation-message").text("").hide();
 
     if (!tweetText) {
-      alert("Error: Your tweet cannot be empty!"); // Validation and display error message
-      return; 
+      $("#validation-message")
+      .text("Error: Your tweet cannot be empty!") // Error message using .text
+      .slideDown();
+    return;
     }
 
     if (tweetText.length > 140) {
-      alert("Error: Your tweet exceeds the maximum character limit of 140!"); // Error message for more than 140 characters
-      return; 
+      // Display error for exceeding character limit
+      $("#validation-message")
+        .text("Too long, your tweet exceeds 140 characters.")
+        .slideDown();
+      return; // Stop execution if there's an error
     }
 
     const formData = $(this).serialize(); // Standardized form data (key=value&key2=value2)
