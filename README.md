@@ -1,18 +1,30 @@
-# Tweeter Project
+# Twitter Project
 
-Tweeter is a simple, single-page Twitter clone.
+This project is a simple implementation of a Twitter-like platform where users can post tweets. It includes a simple user interface with interactive icons that change on hover.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
 
-## Getting Started
+## Features
 
-1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
-2. Clone your repository onto your local device.
-3. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+- **Post Tweets**: Users can post their own tweets.
+- **View Tweets**: The latest tweets are displayed after the form to post new tweets.
+- **User-Friendly Interface**: Simple and clean layout for users to easily interact with the app.
+
+## Technologies Used
+
+- **Node.js**: JavaScript runtime for building the backend.
+- **Express.js**: Web framework for handling routes and HTTP requests.
+- **EJS**: Templating engine for rendering HTML.
+- **CSS**: Used for styling the user interface, including hover effects on interactive icons.
 
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
+This project uses the following dependencies:
+
+- **body-parser**: A middleware to parse incoming request bodies (Version: `^1.15.2`).
+- **chance**: A library for generating random data, used for some sample data in the app (Version: `^1.0.2`).
+- **express**: The web framework used to handle routing and requests (Version: `^4.13.4`).
+- **md5**: A library for creating MD5 hash, used for hashing (Version: `^2.1.0`).
+
+## Final product/Screenshot
+
+![Screenshot of Final Project](images/TweeterPage.png)
