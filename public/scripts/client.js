@@ -91,7 +91,6 @@ const loadTweets = function() {
     url: '/tweets', // Endpoint to get tweets
     method: 'GET', // GET method to fecth data
     success: function(tweets) {
-      console.log("Tweets loaded successfully:", tweets); // Logs loaded tweets
       renderTweets(tweets); // Call renderTweets to display the tweets
     },
     error: function(error) {
@@ -107,9 +106,9 @@ $(document).ready(function() {
   $('form').on('submit', function(event) {
     event.preventDefault(); // Prevents form submission
 
-    let tweetText = $('#tweet-text').val().trim(); // Trim textarea from any whitespaces
+    let tweetText = $('#tweet-text').val().trim(); // Get textarea value
 
-    $("#validation-message").text("").hide();
+    $("#validation-message").text("").hide(); // Clear previous error message
 
     if (!tweetText) {
       $("#validation-message")
@@ -130,14 +129,14 @@ $(document).ready(function() {
 
     const formData = $(this).serialize(); // Standardized form data (key=value&key2=value2)
 
-    console.log("Data being sent to the server:", formData); // Log the data to console
-
     $.ajax({
       url: '/tweets', // API documentation (server endpoint)
       method: 'POST', // HTTP method
       data: formData, // Standardized form data
       success: function(response) {
-        console.log("Tweet submitted successfully:", response);
+        
+        $('#tweet-text').val(""); // Clear textarea
+        $('.counter').text("140"); // Reset char counter
         
         loadTweets(); // Display newly added tweets
       },
