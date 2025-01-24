@@ -3,35 +3,35 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
-html {
+ html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
-  background-color: #f4f1ec;
+  background-color: #781515;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
   padding-top: 120px;
+  margin: 0;
+  min-height: 100vh;
 }
-
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-
 .container {
   width: 90%;
-  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
   background-color: inherit;
+  height: auto;
+  margin: 40px auto;
 }
-
 /* Tablet (min-width: 768px) and Desktop (min-width: 1024px) */
 @media only screen and (min-width: 768px) {
   /* Align avatar and compose tweet side by side */
@@ -40,17 +40,23 @@ body {
     flex-direction: row;
     justify-content: space-between; /* Space between avatar and tweet compose */
     align-items: flex-start; /* Align the items at the start of the row */
+    margin-top: 40px;
   }
-
   .user-avatar {
     width: 30%; /* Avatar takes up 30% of the container */
-    flex-direction: column;
     align-items: flex-start; /* Align avatar to the left */
+    margin-right: 5%;
   }
-
+  .right-section {
+    width: 65%; /* Right section takes up 65% of the container */
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%;
+  }
   .new-tweet {
-    width: 65%; /* Tweet compose takes up 65% of the container */
     margin-top: 0; /* Remove margin to align it better */
-    flex-direction: column; /* Keep the tweet form vertically aligned */
+  }
+  .tweet-container {
+    margin-top: 20px; /* Add some space between the new tweet section and the tweet container */
   }
 }

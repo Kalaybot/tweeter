@@ -1,11 +1,11 @@
 .user-avatar {
-  width: 100%;
+  width: 30%;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #009e7e;
+  background-color: #358daa;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png"); /* Set the background image */
   background-repeat: repeat; /* Ensure the background image repeats if it's smaller than the viewport */
 }

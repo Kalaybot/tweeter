@@ -3,6 +3,8 @@
 .new-tweet {
   padding: 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #d8cece; /* Light gray background */
+  margin-top: 20px;
 }
 
 /* Header styling */
@@ -75,4 +77,10 @@ form > footer {
 
 .counter-red {
   color: red;
+}
+
+.tweet-article {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }

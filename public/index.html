@@ -3,84 +3,69 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:wght@300;600&display=swap" rel="stylesheet">
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
     <!-- Navigation CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-
     <!-- Header (Avatar/Name) CSS -->
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
-
     <!-- New Tweets CSS -->
      <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
     <!-- Tweeter Post CSS -->
      <link rel="stylesheet" href="/styles/tweet.css" type="text/css"/>
-
     <!-- TimeAgo JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
-
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
     <!-- Character Counter JS -->
     <script src="/scripts/composer-char-counter.js"></script>
-
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
-
   </head>
-
   <body>
     <!-- Top nav bar (fixed) -->
-<nav>
-  <span>tweeter</span>
-
-  <div class="tweet-section">
-    <span>
-      <strong>Write</strong> a new tweet
-    </span>
-    <i class="fas fa-angle-double-down"></i> <!-- Angle double-down icon -->
-    </div>
-</nav>
-
-<!-- Avatar/Name -->
-<header class="user-avatar">
-  <div class="avatar">
-    <img src="/images/profile-hex.png">
-  </div>
-  <div class="my-name">
-    <h2>Kyle Bautista</h2>
-  </div>
-</header>
-
-    <!-- Page-specific (main) content here -->
+    <nav>
+      <span>tweeter</span>
+      <div class="tweet-section">
+        <span>
+          <strong>Write</strong> a new tweet
+        </span>
+        <i class="fas fa-angle-double-down"></i> <!-- Angle double-down icon -->
+      </div>
+    </nav>
+    <!-- Main container -->
     <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <section class="error" id="validation-message"></section>
-        <form action="/tweets" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea  class="text-area" name="text" id="tweet-text"></textarea>
+      <!-- Avatar/Name -->
+      <header class="user-avatar">
+        <div class="avatar">
+          <img src="/images/profile-hex.png">
+        </div>
+        <div class="my-name">
+          <h2>Kyle Bautista</h2>
+        </div>
+      </header>
+      <!-- Right section for tweets -->
+      <div class="right-section">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <section class="error" id="validation-message"></section>
+          <form action="/tweets" method="POST">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea class="text-area" name="text" id="tweet-text"></textarea>
             <button class="submit" type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
-          </footer>
-        </form>
-      </section>
-      <section class="tweet-container" id="tweets-container"></section>
+          </form>
+        </section>
+        <section class="tweet-container" id="tweets-container"></section>
+      </div>
     </main>
   </body>
 </html>
