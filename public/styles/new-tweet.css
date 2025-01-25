@@ -1,4 +1,3 @@
-
 /* Styling the new-tweet section */
 .new-tweet {
   padding: 20px;
@@ -48,6 +47,12 @@
   padding: 10px;
 }
 
+/* Placeholder styling */
+.text-area::placeholder {
+  color: black; /* Set placeholder text color to black */
+  opacity: 1; /* Ensure full opacity for the placeholder text */
+}
+
 form > footer {
   display: flex; /* Enable flexbox layout */
   justify-content: space-between; /* Space out the button and counter */
@@ -68,19 +73,46 @@ form > footer {
   cursor: pointer;
 }
 
+/* Counter styling */
 .counter {
-  display: inline-block; /* Keep the counter inline */
   font-family: 'Bungee', sans-serif;
   font-size: 16px;
   color: black;
+  margin-left: auto; /* Align counter to the right */
 }
 
 .counter-red {
   color: red;
 }
 
+/* Tweet article styling */
 .tweet-article {
-  max-width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  max-width: 100%; /* Define a max-width for the tweet article */
+  word-wrap: break-word; /* Break long words */
+  overflow-wrap: break-word; /* Ensure long words break and wrap to the next line */
+  white-space: pre-wrap; /* Preserve whitespace and wrap text */
+}
+
+/* Tweet footer styling */
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tweet-footer .user-handle {
+  margin-left: auto; /* Align user's handle to the right */
+}
+
+/* Responsive design for single-column layout */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column; /* Switch to single-column layout */
+    align-items: stretch; /* Stretch items to fill the container */
+  }
+
+  .user-avatar, .right-section {
+    width: 100%; /* Make each section take full width */
+    margin: 0; /* Remove margins */
+  }
 }

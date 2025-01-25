@@ -58,10 +58,11 @@
           <h2>Compose Tweet</h2>
           <section class="error" id="validation-message"></section>
           <form action="/tweets" method="POST">
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea class="text-area" name="text" id="tweet-text"></textarea>
-            <button class="submit" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <textarea class="text-area" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <footer>
+              <button class="submit" type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </footer>
           </form>
         </section>
         <section class="tweet-container" id="tweets-container"></section>
